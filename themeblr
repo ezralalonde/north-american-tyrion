@@ -113,24 +113,11 @@
             }
             {CustomCSS}
         </style>
-        
-        <script type="text/javascript">
-            var _gaq = _gaq || [];
-            _gaq.push(['_setAccount', '{text:Analytics ID}']);
-            _gaq.push(['_setDomainName', '{text:Analytics Domain}']);
-            _gaq.push(['_trackPageview']);
-            
-            (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-            })();
-        </script>
     </head>
     <body>    
         <ul id="nav">
             <li id="home"><a href="/"><img class="button home" src="{image:Sprites}" alt="home" /></a></li>
-            <li id="archive"><a href="/archive"><a href="/"><img class="button archive" src="{image:Sprites}" alt="archive" /></a></li>
+            <li id="archive"><a href="/archive"><img class="button archive" src="{image:Sprites}" alt="archive" /></a></li>
             <li id="rss"><a href="{RSS}"><img class="button rss" src="{image:Sprites}" alt="rss" /></a></li>
             {block:IfShowAsk}
                 <li id="ask"><a href="/ask"><img class="button ask" src="{image:Sprites}" alt="ask" /></a></li>
