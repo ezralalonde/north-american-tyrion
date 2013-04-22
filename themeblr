@@ -1,0 +1,279 @@
+<html>
+    <head>
+        <title>{Title}</title>
+        <link rel="shortcut icon" href="{Favicon}">
+        <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        <meta name="text:Twitter" content="" />
+        <meta name="text:Github" content="" />
+        <meta name="text:Email" content="" />
+        <meta name="text:LinkedIn" content="" />
+        <meta name="text:Analytics ID" content="" />
+        <meta name="text:Analytics Domain" content="" />
+        
+        <meta name="if:ShowAsk" content="1"/>
+
+        
+        <meta name="image:Sprites" content=""/>
+        <meta name="image:Post Image" content=""/>
+
+        <meta name="color:Background" content="#F3F3F3"/>
+        <meta name="color:Post Back" content="#F3F3F3"/>
+        <meta name="color:Text" content="#303030"/>
+        <meta name="color:Basic Link" content="#808000"/>
+        <meta name="color:Click Link" content="#404000"/>
+        <style type="text/css">
+            html {
+                text-transform: lowercase;
+                font-size:2em;
+                font-family:Georgia;                
+                min-width:600px;
+                margin-right:auto;
+                background:{color:Background};
+            }
+            a {
+                text-decoration:none;
+                color:{color:Basic Link};
+            }
+            a:visited {
+                color:{color:Click Link};    
+            }
+            h1 {
+                font-size:2em;
+                padding:0;
+                margin-top:10px;
+                margin-left:2em;
+                color:{color:Text};    
+            }
+            h3 {
+                margin:0px;    
+            }
+            #nav {
+                margin-top:100px;
+                padding:0;
+                float:left;  
+                width:50px;
+                list-style:none;
+                position:relative;                
+            }
+            #posts {
+                margin-left:45px;    
+                list-style:none;
+            }
+            .post {
+                margin-top:20px;
+                margin-right:20px;
+                padding:20px;
+                border-radius:10px;
+                min-width:500px;
+                width:80%;
+                max-width:650px;
+                background-image:url('{image:Post Image}');
+                background-color:{color:Post Back};
+            }
+            .button {
+                width:100%;
+                height:50px
+                height:auto;
+                position: absolute;
+                border-radius:10px;
+
+            }
+            .button:hover {
+                background:{color:Basic Link};
+
+            }
+            .twitter {
+                clip:rect(100px 50px 150px 0);
+                border-radius:4px;
+
+            }
+            .linkedin {
+                clip:rect(250px 50px 300px 0);
+            }
+            .archive {
+                clip:rect(300px 50px 350px 0);
+            }
+            .rss {
+                clip:rect(350px 50px 400px 0);
+            }
+            .ask {
+                clip:rect(50px 50px 100px 0);
+            }
+            .email {
+                clip:rect(150px 50px 200px 0);
+            }
+            .github {
+                clip:rect(200px 50px 250px 0);
+            }
+            .home {
+                clip:rect(0px 50px 50px 0);
+            }
+            {CustomCSS}
+        </style>
+    </head>
+    <body>    
+        <ul id="nav">
+            <li id="home"><a href="/"><img class="button home" src="{image:Sprites}" alt="home" /></a></li>
+            <li id="archive"><a href="/archive"><a href="/"><img class="button archive" src="{image:Sprites}" alt="archive" /></a></li>
+            <li id="rss"><a href="{RSS}"><img class="button rss" src="{image:Sprites}" alt="rss" /></a></li>
+            {block:IfShowAsk}
+                <li id="ask"><a href="/ask"><img class="button ask" src="{image:Sprites}" alt="ask" /></a></li>
+            {/block:IfShowAsk}
+            {block:IfTwitter}
+                <li><a href="//twitter.com/{text:Twitter}"><img class="button twitter" src="{image:Sprites}" alt="twitter" /></a></li>
+            {/block:IfTwitter}
+            {block:IfGithub}
+                <li id="github"><a href="//github.com/{text:Github}"><img class="button github" src="{image:Sprites}" alt="github" /></a></li>
+            {/block:IfGithub}
+            {block:IfEmail}
+                <li id="email"><a href="mailto:{text:Email}"><img class="button email" src="{image:Sprites}" alt="email" /></a></li>
+            {/block:IfEmail}
+            {block:IfLinkedIn}
+                <li id="linkedin"><a href="{text:LinkedIn}"><img class="button linkedin" src="{image:Sprites}" alt="linkedin" /></a></li>
+            {/block:IfLinkedIn}
+        </ul>
+
+        <div id="header">
+            <a href="/" class="header">
+                <h1>{Title}</h1>
+            </a>
+            {block:Description}
+                <p id="description">{Description}</p>
+            {/block:Description}
+        </div>
+                
+
+        
+        <ul id="posts">
+            {block:Posts}
+                <script type="text/javascript">
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', '{text:Analytics ID}']);
+                  _gaq.push(['_setDomainName', '{text:Analytics Domain}']);
+                  _gaq.push(['_trackPageview']);
+                
+                  (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                  })();
+                
+                </script>
+                {block:Text}
+                    <li class="post text {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {block:Title}
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        {Body}
+                    </li>
+                {/block:Text}
+
+                {block:Photo}
+                    <li class="post photo {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photo}
+
+                {block:Panorama}
+                    <li class="post panorama {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {LinkOpenTag}
+                            <img src="{PhotoURL-Panorama}" alt="{PhotoAlt}"/>
+                        {LinkCloseTag}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Panorama}
+
+                {block:Photoset}
+                    <li class="post photoset {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {Photoset-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Photoset}
+
+                {block:Quote}
+                    <li class="post quote {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        "{Quote}"
+
+                        {block:Source}
+                            <div class="source">{Source}</div>
+                        {/block:Source}
+                    </li>
+                {/block:Quote}
+
+                {block:Link}
+                    <li class="post link {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        <a href="{URL}" class="link" {Target}>{Name}</a>
+
+                        {block:Description}
+                            <div class="description">{Description}</div>
+                        {/block:Description}
+                    </li>
+                {/block:Link}
+
+                {block:Chat}
+                    <li class="post chat {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {block:Title} 
+                            <h3><a href="{Permalink}">{Title}</a></h3>
+                        {/block:Title}
+
+                        <ul class="chat">
+                            {block:Lines}
+                                <li class="{Alt} user_{UserNumber}">
+                                    {block:Label}
+                                        <span class="label">{Label}</span>
+                                    {/block:Label}
+
+                                    {Line}
+                                </li>
+                            {/block:Lines}
+                        </ul>
+                    </li>
+                {/block:Chat}
+
+                {block:Video}
+                    <li class="post video {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Video}
+
+                {block:Audio}
+                    <li class="post audio {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
+                        {AudioPlayerBlack}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Audio}
+            {/block:Posts}
+        </ul>
+
+        <p id="footer">
+            {block:PreviousPage}
+                <a href="{PreviousPage}">&#171; Previous</a>
+            {/block:PreviousPage}
+
+            {block:NextPage}
+                <a href="{NextPage}">Next &#187;</a>
+            {/block:NextPage}
+        </p>
+    </body>
+</html>
