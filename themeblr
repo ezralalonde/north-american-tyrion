@@ -115,7 +115,7 @@
         </style>
         
         <script type="text/javascript">
-        var _gaq = _gaq || [];
+            var _gaq = _gaq || [];
             _gaq.push(['_setAccount', '{text:Analytics ID}']);
             _gaq.push(['_setDomainName', '{text:Analytics Domain}']);
             _gaq.push(['_trackPageview']);
