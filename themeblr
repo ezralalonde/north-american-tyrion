@@ -6,10 +6,18 @@
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
         {/block:Description}
+        <meta name="text:BookReview" content="" />
+        <meta name="text:Bookmark" content="" />
+        <meta name="text:Experiment" content="" />
+        <meta name="text:Writing" content="" />
+        <meta name="text:License" content="" />
         <meta name="text:Twitter" content="" />
         <meta name="text:Github" content="" />
         <meta name="text:Email" content="" />
+        <meta name="text:Info" content="" />
+        <meta name="text:StackExchange" content="" />
         <meta name="text:LinkedIn" content="" />
+    
         <meta name="text:Analytics ID" content="" />
         <meta name="text:Analytics Domain" content="" />
         
@@ -25,10 +33,55 @@
         <meta name="color:Basic Link" content="#808000"/>
         <meta name="color:Click Link" content="#404000"/>
         <style type="text/css">
+        
+@font-face {
+    font-family: 'LeagueGothic';
+    src: url('http://static.tumblr.com/24o0kdo/fqnmm3grd/leaguegothic-regular-webfont.eot');
+    src: url('http://static.tumblr.com/24o0kdo/fqnmm3grd/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://assets.usefuliftrue.com/LeagueGothic-Regular-webfont.woff') format('woff'),
+         url('http://assets.usefuliftrue.com/LeagueGothic-Regular-webfont.ttf') format('truetype'),
+         url('http://static.tumblr.com/24o0kdo/VIcmm3gqa/leaguegothic-regular-webfont.svg#LeagueGothic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('http://static.tumblr.com/24o0kdo/JgMmm3ncg/icomoon.eot');
+	src:url('http://static.tumblr.com/24o0kdo/JgMmm3ncg/icomoon.eot?#iefix') format('embedded-opentype'),
+	url('http://assets.usefuliftrue.com/icomoon.woff') format('woff'),
+	url('http://assets.usefuliftrue.com/icomoon.ttf') format('truetype'),
+	url('http://static.tumblr.com/24o0kdo/nffmm3nd0/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+[data-icon]:before {
+    font-family: 'icomoon';
+	content: attr(data-icon);
+	speak: none;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+            
+@font-face {
+    font-family: 'CharisSIL';
+    src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot');
+    src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot?#iefix') format('embedded-opentype'),
+         url('http://assets.usefuliftrue.com/CharisSILR-webfont.woff') format('woff'),
+         url('http://assets.usefuliftrue.com/CharisSILR-webfont.ttf') format('truetype'),
+         url('http://static.tumblr.com/24o0kdo/uwZmm3gyd/charissilr-webfont.svg#CharisSIL') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+        
             html {
-                text-transform: lowercase;
+                font-family: 'CharisSIL';
+                letter-spacing: 0;
                 font-size:2em;
-                font-family:Georgia;                
                 min-width:600px;
                 margin-right:auto;
                 background:{color:Background};
@@ -41,19 +94,23 @@
                 color:{color:Click Link};    
             }
             h1 {
+                font-family: 'LeagueGothic';
+                text-transform:uppercase;
+                letter-spacing: 0;
                 font-size:2em;
                 padding:0;
+                margin-bottom:0;
                 margin-top:10px;
                 margin-left:2em;
-                color:{color:Text};    
+                color:{color:Text};
+                
             }
             h3 {
                 margin:0px;    
             }
             #nav {
-                margin-top:100px;
                 padding:0;
-                float:left;  
+                margin:0;
                 width:50px;
                 list-style:none;
                 position:relative;                
@@ -73,68 +130,11 @@
                 background-image:url('{image:Post Image}');
                 background-color:{color:Post Back};
             }
-            .button {
-                width:100%;
-                height:50px
-                height:auto;
-                position: absolute;
-                border-radius:10px;
-
-            }
-            .button:hover {
-                background:{color:Basic Link};
-
-            }
-            .twitter {
-                clip:rect(100px 50px 150px 0);
-                border-radius:4px;
-
-            }
-            .linkedin {
-                clip:rect(250px 50px 300px 0);
-            }
-            .archive {
-                clip:rect(300px 50px 350px 0);
-            }
-            .rss {
-                clip:rect(350px 50px 400px 0);
-            }
-            .ask {
-                clip:rect(50px 50px 100px 0);
-            }
-            .email {
-                clip:rect(150px 50px 200px 0);
-            }
-            .github {
-                clip:rect(200px 50px 250px 0);
-            }
-            .home {
-                clip:rect(0px 50px 50px 0);
-            }
             {CustomCSS}
         </style>
     </head>
     <body>    
-        <ul id="nav">
-            <li id="home"><a href="/"><img class="button home" src="{image:Sprites}" alt="home" /></a></li>
-            <li id="archive"><a href="/archive"><img class="button archive" src="{image:Sprites}" alt="archive" /></a></li>
-            <li id="rss"><a href="{RSS}"><img class="button rss" src="{image:Sprites}" alt="rss" /></a></li>
-            {block:IfShowAsk}
-                <li id="ask"><a href="/ask"><img class="button ask" src="{image:Sprites}" alt="ask" /></a></li>
-            {/block:IfShowAsk}
-            {block:IfTwitter}
-                <li><a href="//twitter.com/{text:Twitter}"><img class="button twitter" src="{image:Sprites}" alt="twitter" /></a></li>
-            {/block:IfTwitter}
-            {block:IfGithub}
-                <li id="github"><a href="//github.com/{text:Github}"><img class="button github" src="{image:Sprites}" alt="github" /></a></li>
-            {/block:IfGithub}
-            {block:IfEmail}
-                <li id="email"><a href="mailto:{text:Email}"><img class="button email" src="{image:Sprites}" alt="email" /></a></li>
-            {/block:IfEmail}
-            {block:IfLinkedIn}
-                <li id="linkedin"><a href="{text:LinkedIn}"><img class="button linkedin" src="{image:Sprites}" alt="linkedin" /></a></li>
-            {/block:IfLinkedIn}
-        </ul>
+
 
         <div id="header">
             <a href="/" class="header">
@@ -145,7 +145,48 @@
             {/block:Description}
         </div>
                 
+        <ul id="nav">
+            <li id="home"><a href="/" data-icon="&#xe001;">Home</a></li>
+            {block:IfInfo}
+                <li id="info"><a href="{text:Info}" data-icon="&#xe024;">Info</a></li>
+            {/block:IfInfo}
+            {block:IfShowAsk}
+                <li id="ask"><a href="/ask" data-icon="&#xe008;">Ask</a></li>
+            {/block:IfShowAsk}
+            {block:IfGithub}
+                <li id="github"><a href="//github.com/{text:Github}" data-icon="&#xe01b;">Github</a></li>
+            {/block:IfGithub}
+            {block:IfStackExchange}
+                <li id="stackexchange"><a href="{text:StackExchange}" data-icon="&#xe01c;">StackExchange</a></li>
+            {/block:IfStackExchange}
+            {block:IfTwitter}
+                <li><a href="//twitter.com/{text:Twitter}" data-icon="&#xe01a;">Twitter</a></li>
+            {/block:IfTwitter}
 
+            {block:IfLinkedIn}
+                <li id="linkedin"><a href="{text:LinkedIn}" data-icon="&#xe028;">LinkedIn</a></li>
+            {/block:IfLinkedIn}
+            {block:IfExperiment}
+                <li id="experiment"><a href="{text:Experiment}" data-icon="&#xe00a;">Experiments</a></li>
+            {/block:IfExperiment}
+            {block:IfWriting}
+                <li id="writing"><a href="{text:Writing}" data-icon="&#xe002;">Writing</a></li>
+            {/block:IfWriting}
+            {block:IfBookmark}
+                <li id="bookmark"><a href="{text:Bookmark}" data-icon="&#xe00f;">Bookmarks</a></li>
+            {/block:IfBookmark}
+            {block:IfBookReview}
+                <li id="bookreview"><a href="{text:BookReview}" data-icon="&#xe023;">Book&nbsp;Reviews</a></li>
+            {/block:IfBookReview}
+            {block:IfEmail}
+                <li id="email"><a href="mailto:{text:Email}" data-icon="&#xe030;">Email</a></li>
+            {/block:IfEmail}
+            <li id="archive"><a href="/archive" data-icon="&#xe007;">Archive</a></li>
+            <li id="rss"><a href="{RSS}" data-icon="&#xe000;">RSS</a></li>
+            {block:IfLicense}
+                <li id="license"><a href="{text:License}" data-icon="&#xe029;">License</a></li>
+            {/block:IfLicense}
+        </ul>
         
         <ul id="posts">
             {block:Posts}
