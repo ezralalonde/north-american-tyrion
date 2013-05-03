@@ -3,26 +3,18 @@
         <title>{Title}</title>
         <link rel="shortcut icon" href="{Favicon}">
         <link rel="alternate" type="application/rss+xml" href="{RSS}">
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/foundation/4.1.2/css/foundation.min.css">
         {block:Description}
             <meta name="description" content="{MetaDescription}" />
         {/block:Description}
-        <meta name="text:BookReview" content="" />
-        <meta name="text:Bookmark" content="" />
-        <meta name="text:Experiment" content="" />
-        <meta name="text:Writing" content="" />
-        <meta name="text:License" content="" />
         <meta name="text:Twitter" content="" />
         <meta name="text:Github" content="" />
         <meta name="text:Email" content="" />
-        <meta name="text:Info" content="" />
-        <meta name="text:StackExchange" content="" />
         <meta name="text:LinkedIn" content="" />
-    
         <meta name="text:Analytics ID" content="" />
         <meta name="text:Analytics Domain" content="" />
         
         <meta name="if:ShowAsk" content="1"/>
-
         
         <meta name="image:Sprites" content=""/>
         <meta name="image:Post Image" content=""/>
@@ -33,176 +25,86 @@
         <meta name="color:Basic Link" content="#808000"/>
         <meta name="color:Click Link" content="#404000"/>
         <style type="text/css">
-        
-@font-face {
-    font-family: 'LeagueGothic';
-    src: url('http://static.tumblr.com/24o0kdo/fqnmm3grd/leaguegothic-regular-webfont.eot');
-    src: url('http://static.tumblr.com/24o0kdo/fqnmm3grd/leaguegothic-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://assets.usefuliftrue.com/LeagueGothic-Regular-webfont.woff') format('woff'),
-         url('http://assets.usefuliftrue.com/LeagueGothic-Regular-webfont.ttf') format('truetype'),
-         url('http://static.tumblr.com/24o0kdo/VIcmm3gqa/leaguegothic-regular-webfont.svg#LeagueGothic') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'icomoon';
-    src:url('http://static.tumblr.com/24o0kdo/JgMmm3ncg/icomoon.eot');
-	src:url('http://static.tumblr.com/24o0kdo/JgMmm3ncg/icomoon.eot?#iefix') format('embedded-opentype'),
-	url('http://assets.usefuliftrue.com/icomoon.woff') format('woff'),
-	url('http://assets.usefuliftrue.com/icomoon.ttf') format('truetype'),
-	url('http://static.tumblr.com/24o0kdo/nffmm3nd0/icomoon.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-[data-icon]:before {
-    font-family: 'icomoon';
-	content: attr(data-icon);
-	speak: none;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
-            
-@font-face {
-    font-family: 'CharisSIL';
-    src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot');
-    src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot?#iefix') format('embedded-opentype'),
-         url('http://assets.usefuliftrue.com/CharisSILR-webfont.woff') format('woff'),
-         url('http://assets.usefuliftrue.com/CharisSILR-webfont.ttf') format('truetype'),
-         url('http://static.tumblr.com/24o0kdo/uwZmm3gyd/charissilr-webfont.svg#CharisSIL') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-        
-            html {
+            @font-face {
                 font-family: 'CharisSIL';
-                letter-spacing: 0;
-                font-size:2em;
-                min-width:600px;
-                margin-right:auto;
-                background:{color:Background};
+                src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot');
+                src: url('http://static.tumblr.com/24o0kdo/VN2mm3gxa/charissilr-webfont.eot?#iefix') format('embedded-opentype'),
+                     url('http://assets.usefuliftrue.com/CharisSILR-webfont.woff') format('woff'),
+                     url('http://assets.usefuliftrue.com/CharisSILR-webfont.ttf') format('truetype'),
+                     url('http://static.tumblr.com/24o0kdo/uwZmm3gyd/charissilr-webfont.svg#CharisSIL') format('svg');
+                font-weight: normal;
+                font-style: normal;
             }
-            a {
-                text-decoration:none;
-                color:{color:Basic Link};
-            }
-            a:visited {
-                color:{color:Click Link};    
+        
+            body, h1 {
+                font-family: 'CharisSIL', serif;
+                font-size:1.6em;
+                line-height:110%;
             }
             h1 {
-                font-family: 'LeagueGothic';
-                text-transform:uppercase;
-                letter-spacing: 0;
-                font-size:2em;
-                padding:0;
-                margin-bottom:0;
-                margin-top:10px;
-                margin-left:2em;
-                color:{color:Text};
-                
+                font-size:2.5em;    
             }
-            h3 {
-                margin:0px;    
+            header {
+                text-align:center;    
             }
-            #nav {
-                padding:0;
-                margin:0;
-                width:50px;
-                list-style:none;
-                position:relative;                
-            }
-            #posts {
-                margin-left:45px;    
-                list-style:none;
+            ul#posts {
+                list-style:none;    
             }
             .post {
-                margin-top:20px;
-                margin-right:20px;
-                padding:20px;
-                border-radius:10px;
-                min-width:500px;
-                width:80%;
-                max-width:650px;
-                background-image:url('{image:Post Image}');
-                background-color:{color:Post Back};
+                margin-bottom:3em;    
+            }
+            .post.pamorama.img, .post.photo.img {
+                display:block;
+
+            }
+            .post.panorama, .post.photo {
+                text-align:center;    
+            }
+            li.post div.caption {
+                font-size:0.8em;   
             }
             {CustomCSS}
         </style>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', '{text:Analytics ID}']);
+            _gaq.push(['_setDomainName', '{text:Analytics Domain}']);
+            _gaq.push(['_trackPageview']);
+            
+            (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
     </head>
     <body>    
-
-
-        <div id="header">
-            <a href="/" class="header">
-                <h1>{Title}</h1>
-            </a>
-            {block:Description}
-                <p id="description">{Description}</p>
-            {/block:Description}
-        </div>
-                
-        <ul id="nav">
-            <li id="home"><a href="/" data-icon="&#xe001;">Home</a></li>
-            {block:IfInfo}
-                <li id="info"><a href="{text:Info}" data-icon="&#xe024;">Info</a></li>
-            {/block:IfInfo}
-            {block:IfShowAsk}
-                <li id="ask"><a href="/ask" data-icon="&#xe008;">Ask</a></li>
-            {/block:IfShowAsk}
-            {block:IfGithub}
-                <li id="github"><a href="//github.com/{text:Github}" data-icon="&#xe01b;">Github</a></li>
-            {/block:IfGithub}
-            {block:IfStackExchange}
-                <li id="stackexchange"><a href="{text:StackExchange}" data-icon="&#xe01c;">StackExchange</a></li>
-            {/block:IfStackExchange}
-            {block:IfTwitter}
-                <li><a href="//twitter.com/{text:Twitter}" data-icon="&#xe01a;">Twitter</a></li>
-            {/block:IfTwitter}
-
-            {block:IfLinkedIn}
-                <li id="linkedin"><a href="{text:LinkedIn}" data-icon="&#xe028;">LinkedIn</a></li>
-            {/block:IfLinkedIn}
-            {block:IfExperiment}
-                <li id="experiment"><a href="{text:Experiment}" data-icon="&#xe00a;">Experiments</a></li>
-            {/block:IfExperiment}
-            {block:IfWriting}
-                <li id="writing"><a href="{text:Writing}" data-icon="&#xe002;">Writing</a></li>
-            {/block:IfWriting}
-            {block:IfBookmark}
-                <li id="bookmark"><a href="{text:Bookmark}" data-icon="&#xe00f;">Bookmarks</a></li>
-            {/block:IfBookmark}
-            {block:IfBookReview}
-                <li id="bookreview"><a href="{text:BookReview}" data-icon="&#xe023;">Book&nbsp;Reviews</a></li>
-            {/block:IfBookReview}
-            {block:IfEmail}
-                <li id="email"><a href="mailto:{text:Email}" data-icon="&#xe030;">Email</a></li>
-            {/block:IfEmail}
-            <li id="archive"><a href="/archive" data-icon="&#xe007;">Archive</a></li>
-            <li id="rss"><a href="{RSS}" data-icon="&#xe000;">RSS</a></li>
-            {block:IfLicense}
-                <li id="license"><a href="{text:License}" data-icon="&#xe029;">License</a></li>
-            {/block:IfLicense}
-        </ul>
-        
-        <ul id="posts">
+      <header class="row">
+        <h1>{Title}</h1>
+        {block:Description}
+          <p id="description">{Description}</p>
+        {/block:Description}
+      </header>
+      <ul id="posts">
+        <div class="row">
+        <div class="small-10 small-centered columns">
             {block:Posts}
                 {block:Text}
                     <li class="post text {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
                         {block:Title}
+                            <div class="row">
                             <h3><a href="{Permalink}">{Title}</a></h3>
+                            </div>
                         {/block:Title}
-
-                        {Body}
+                        <div class="row">
+                            {Body}
+                        </div>
                     </li>
                 {/block:Text}
 
                 {block:Photo}
                     <li class="post photo {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
-                        <img src="{PhotoURL-500}" alt="{PhotoAlt}"/>
+                        <img class="centered" src="{PhotoURL-500}" alt="{PhotoAlt}"/>
 
                         {block:Caption}
                             <div class="caption">{Caption}</div>
@@ -233,12 +135,16 @@
                 {/block:Photoset}
 
                 {block:Quote}
-                    <li class="post quote {block:Odd}odd{/block:Odd}{block:Even}even{/block:Even}">
-                        "{Quote}"
+                    <li class="post quote {block:Odd}odd{/block:Odd} {block:Even}even{/block:Even}">
+                    <div class="row">
+                        <blockquote class="small-10 small-centered columns">{Quote}"</blockquote>
+                    </div>
+                    {block:Source}
+                        <div class="row">
+                        <div class="source small-9 small-offset-3 columns">&mdash;{Source}<div>
+                        </div>
+                    {/block:Source}
 
-                        {block:Source}
-                            <div class="source">{Source}</div>
-                        {/block:Source}
                     </li>
                 {/block:Quote}
 
@@ -287,21 +193,36 @@
                         {AudioPlayerBlack}
 
                         {block:Caption}
-                            <div class="caption">{Caption}</div>
+                            <div class="source">{Caption}</div>
                         {/block:Caption}
                     </li>
                 {/block:Audio}
             {/block:Posts}
+          </div>
+          </div>
         </ul>
-
-        <p id="footer">
-            {block:PreviousPage}
-                <a href="{PreviousPage}">&#171; Previous</a>
-            {/block:PreviousPage}
-
-            {block:NextPage}
-                <a href="{NextPage}">Next &#187;</a>
-            {/block:NextPage}
-        </p>
+        
+       <footer>
+          {block:Pagination}
+            <nav class="pagination-centered">
+              <ul class="pagination">
+                {block:PreviousPage}
+                  <li class="arrow unavailable"><a href="{PreviousPage}">&laquo;</a></li>
+                {/block:PreviousPage}
+                {block:JumpPagination length="9"}
+                  {block:CurrentPage} 
+                     <li class="current"><a href="{URL}">{PageNumber}</a></li>
+                  {/block:CurrentPage}
+                  {block:JumpPage}
+                     <li><a href="{URL}">{PageNumber}</a></li>
+                  {/block:JumpPage}
+                {/block:JumpPagination}                   
+                {block:NextPage}
+                  <li class="arrow"><a href="{NextPage}">&raquo;</a></li>
+                {/block:NextPage}
+              </ul>
+            </nav>
+          {/block:Pagination}
+        </footer>
     </body>
 </html>
